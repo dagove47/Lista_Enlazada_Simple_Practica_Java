@@ -5,13 +5,34 @@
 
 package Lista_Enlazada_Simple_Practica_Java;
 
+import javax.swing.JOptionPane;
+
 /**
  *
- * @author dagove47
+ * @author David Gomez, Gabriel Brilla, Gerald Blanco, Alexander Torres
  */
 public class Lista_Enlazada_Simple_Practica_Java {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Lista lista = new Lista();
+        int loop = 0;
+        while(loop == 0) {
+            int addCasa = JOptionPane.showConfirmDialog(null,
+                    lista.listarPila() + "\n" +
+                            "Desea agregar mas casas a la lista?",
+                    "Question",JOptionPane.YES_NO_OPTION);
+            switch(addCasa) {
+                case 0:
+                    pila.push();
+                    break;
+                case 1:
+                    lista.modifica(new Casa());
+                    break;
+                default:
+                    loop = 1;
+                    break;
+            }
+        }
+        System.exit(0);
     }
 }
