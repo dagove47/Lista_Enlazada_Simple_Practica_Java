@@ -9,55 +9,39 @@ package Lista_Enlazada_Simple_Practica_Java;
  * @author David Gomez, Gabriel Brilla, Gerald Blanco, Alexander Torres
  */
 public class Lista {
-    
     private Nodo cabeza;
     
-    public void inserta(Casa V){
-        if(cabeza==null){
-            cabeza = new Nodo(V);
-        }else if(V.getFundado()<cabeza.getDato().getFundado()){
-            Nodo aux = new Nodo(V);
-            aux.setNext(cabeza);
+    public void reemplazar(Casa casa) {
+
+        if(cabeza==null){ 
+            // La fila esta vacia
+            cabeza = new Nodo(casa);
+        }else if(casa.getCreado() < cabeza.getDato().getCreado()) { 
+            // si la casa es mas vieja, reemplaza primera
+            Nodo aux = new Nodo(casa);
+            aux.setNext(cabeza.getNext());
             cabeza=aux;
-        }else if(cabeza.getNext()==null){
-            cabeza.setNext(new Nodo(V));
-        }else{
-           Nodo aux = cabeza;
-           while (aux.getNext() != null &&
-                   aux.getNext().getDato().getFundado()
-                   <V.getFundado()){
-               aux=aux.getNext();
-           }
-           Nodo temp = new Nodo(V);
-           temp.setNext(aux.getNext());
-           aux.setNext(temp);
+        }else if(cabeza.getNext()==null){ 
+            // El next de la cabeza esta vacia
+            cabeza.setNext(new Nodo(casa));
+        }else{ 
+            // Si no cumple lo anterior se envia a la ultima posicion
+            Nodo aux = cabeza;
+            while (aux.getNext() != null) {
+                aux=aux.getNext();
+            }
+            aux.setNext(new Nodo(casa));
         } 
-    }
-    
-    public void modifica (Casa V) {
-    //busca a si existe alguien con el id, y le actualiza el nombre
-        if (cabeza != null) {
-            //Si hay algo en la lista buscaré
-            Nodo aux = cabeza; //utilizo aux como indice
-            //Mientras no se acabe la lista y el elemento
-            //de la lista sea menor que el buscado
-            while (aux != null && aux.getDato().getFundado() < V.getFundado()) {
-                aux = aux. getNext(); //avanzo en la lista
-            }
-            // Si lo encuentra hago el cambio
-            if (aux != null && aux.getDato().getFundado() == V.getFundado()){
-                //Solo básta cambiar nombre
-                aux.getDato().setFundado(V.getFundado());
-            }
-        }
     }
     
     @Override
     public String toString(){
         Nodo aux = cabeza;
-        String s="Lista: ";
+        int num = 1;
+        String s="Lista de casas (vieja a nueva): \n\n";
         while(aux!=null){
-            s+=aux+", ";
+            s+= num + " - " + aux+", \n";
+            num++;
             aux=aux.getNext();
         }
         return s;

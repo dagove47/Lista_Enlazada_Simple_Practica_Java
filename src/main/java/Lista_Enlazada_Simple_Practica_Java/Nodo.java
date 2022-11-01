@@ -11,6 +11,16 @@ package Lista_Enlazada_Simple_Practica_Java;
 public class Nodo {
     private Casa dato;
     private Nodo next;
+    
+    @Override
+    public String toString() {
+        return dato.toString();
+    }
+    
+    public Nodo(Casa dato) {
+        this.dato = dato;
+    }
+    
     public Casa getDato() {
         return dato;
     }
@@ -25,14 +35,5 @@ public class Nodo {
 
     public void setNext(Nodo next) {
         this.next = next;
-    }
-
-    public Nodo(Casa dato) {
-        this.dato = dato;
-    }
-
-    @Override
-    public String toString() {
-        return "Nodo{" + "dato=" + dato + '}';
     }
 }

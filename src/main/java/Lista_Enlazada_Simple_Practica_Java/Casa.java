@@ -9,20 +9,22 @@ package Lista_Enlazada_Simple_Practica_Java;
  * @author David Gomez, Gabriel Brilla, Gerald Blanco, Alexander Torres
  */
 public class Casa {
-    private int fundado;
+    private int creado;
     private int ventanas;
 
-    public Casa(int fundado, int ventanas) {
-        this.fundado = fundado;
+    public Casa(int creado, int ventanas) {
+        this.creado = creado;
         this.ventanas = ventanas;
     }
+    
+    public Casa() {}
 
-    public int getFundado() {
-        return fundado;
+    public int getCreado() {
+        return creado;
     }
 
-    public void setFundado(int fundado) {
-        this.fundado = fundado;
+    public void setCreado(int creado) {
+        this.creado = creado;
     }
 
     public int getVentanas() {
@@ -33,10 +35,8 @@ public class Casa {
         this.ventanas = ventanas;
     }
 
-    public Casa() {}
-    
     @Override
     public String toString(){
-        return "Casa{" + "año="+fundado+", ventanas="+ventanas+'}';
+        return "Casa {" + "año="+creado+", ventanas="+ventanas+'}';
     }
 }
