@@ -12,15 +12,15 @@ public class Lista {
     
     private Nodo cabeza;
     
-    public void inserta(Casa p){
+    public void inserta(Casa V){
         if(cabeza==null){
-            cabeza = new Nodo(p);
-        }else if(p.getId()<cabeza.getDato().getAño()){
-            Nodo aux = new Nodo(p);
+            cabeza = new Nodo(V);
+        }else if(p.getAño()<cabeza.getDato().getAño()){
+            Nodo aux = new Nodo(V);
             aux.setNext(cabeza);
             cabeza=aux;
         }else if(cabeza.getNext()==null){
-            cabeza.setNext(new Nodo(p));
+            cabeza.setNext(new Nodo(V));
         }else{
            Nodo aux = cabeza;
            while (aux.getNext() != null &&
@@ -28,7 +28,7 @@ public class Lista {
                    <p.getAño()){
                aux=aux.getNext();
            }
-           Nodo temp = new Nodo(p);
+           Nodo temp = new Nodo(V);
            temp.setNext(aux.getNext());
            aux.setNext(temp);
         } 

@@ -37,6 +37,6 @@ public class Casa {
     
     @Override
     public String toString(){
-        return "Persona{" + "anno="+año+", ventanas="+ventanas+'}';
+        return "Casa{" + "año="+año+", ventanas="+ventanas+'}';
     }
 }

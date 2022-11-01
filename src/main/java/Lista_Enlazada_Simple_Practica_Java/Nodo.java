@@ -27,8 +27,7 @@ public class Nodo {
         this.next = next;
     }
 
-    public Nodo(Casa dato, Nodo next) {
+    public Nodo(Casa dato) {
         this.dato = dato;
-        this.next = next;
     }
 }
