@@ -15,24 +15,52 @@ public class Lista_Enlazada_Simple_Practica_Java {
 
     public static void main(String[] args) {
         Lista lista = new Lista();
-        int loop = 0;
-        while(loop == 0) {
-            int addCasa = JOptionPane.showConfirmDialog(null,
-                    lista.listarPila() + "\n" +
-                            "Desea agregar mas casas a la lista?",
-                    "Question",JOptionPane.YES_NO_OPTION);
-            switch(addCasa) {
+
+        int menu = 0;
+
+        do {
+            menu = Integer.parseInt(JOptionPane.showInputDialog("Desea agregar más casas a la lista?" +
+                    "\n\t1.Sí\n\t2.No\n\t0.Salir\nSeleccione lo que desea hacer (0-2): "));
+
+            switch (menu){
                 case 0:
-                    pila.push();
                     break;
+
                 case 1:
-                    lista.modifica(new Casa());
+                    lista.inserta(new Casa(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el año de fundación " +
+                            "de la casa: ")),Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de " +
+                            "ventanas que tiene la casa: "))));
+                    JOptionPane.showMessageDialog(null,"La lista actual es: " +
+                            "\n" + lista + "\n");
+                    System.out.println(lista);
                     break;
+
+                case 2:
+                    int menu2 = 0;
+                    do {
+                        menu2 = Integer.parseInt(JOptionPane.showInputDialog("Desea reemplazar una casa?\n\t1.Sí" +
+                                "\n\t2.No\nSeleccione que quiere hacer (1-2): "));
+                        switch (menu2){
+                            case 1:
+                                lista.modifica(new Casa(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el año " +
+                                        "de fundación de la casa: ")),Integer.parseInt(JOptionPane.showInputDialog("Ingr" +
+                                        "ese la cantidad de ventanas que tiene la casa: "))));
+                                JOptionPane.showMessageDialog(null, "La lista modificada es:" +
+                                        " \n" + lista + "\n");
+                                System.out.println(lista);
+                                break;
+
+                            case 2:
+                                menu2 = 2;
+                                break;
+
+                        }
+                    }while (menu2 != 2);
+
                 default:
-                    loop = 1;
-                    break;
+                    JOptionPane.showMessageDialog(null,"La opción indicada" +
+                            " no existe, intente de nuevo...");
             }
-        }
-        System.exit(0);
+        }while (menu != 0);
     }
 }

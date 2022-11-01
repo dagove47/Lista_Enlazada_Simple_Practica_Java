@@ -30,4 +30,9 @@ public class Nodo {
     public Nodo(Casa dato) {
         this.dato = dato;
     }
+
+    @Override
+    public String toString() {
+        return "Nodo{" + "dato=" + dato + '}';
+    }
 }

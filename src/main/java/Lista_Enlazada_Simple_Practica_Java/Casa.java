@@ -9,15 +9,20 @@ package Lista_Enlazada_Simple_Practica_Java;
  * @author David Gomez, Gabriel Brilla, Gerald Blanco, Alexander Torres
  */
 public class Casa {
-    private int año;
+    private int fundado;
     private int ventanas;
-    
-    public int getAño() {
-        return año;
+
+    public Casa(int fundado, int ventanas) {
+        this.fundado = fundado;
+        this.ventanas = ventanas;
     }
 
-    public void setAño(int año) {
-        this.año = año;
+    public int getFundado() {
+        return fundado;
+    }
+
+    public void setFundado(int fundado) {
+        this.fundado = fundado;
     }
 
     public int getVentanas() {
@@ -28,15 +33,10 @@ public class Casa {
         this.ventanas = ventanas;
     }
 
-    public Casa(int año, int ventanas) {
-        this.año = año;
-        this.ventanas = ventanas;
-    }
-
     public Casa() {}
     
     @Override
     public String toString(){
-        return "Casa{" + "año="+año+", ventanas="+ventanas+'}';
+        return "Casa{" + "año="+fundado+", ventanas="+ventanas+'}';
     }
 }

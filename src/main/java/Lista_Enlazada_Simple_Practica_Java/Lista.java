@@ -15,7 +15,7 @@ public class Lista {
     public void inserta(Casa V){
         if(cabeza==null){
             cabeza = new Nodo(V);
-        }else if(p.getAño()<cabeza.getDato().getAño()){
+        }else if(V.getFundado()<cabeza.getDato().getFundado()){
             Nodo aux = new Nodo(V);
             aux.setNext(cabeza);
             cabeza=aux;
@@ -24,8 +24,8 @@ public class Lista {
         }else{
            Nodo aux = cabeza;
            while (aux.getNext() != null &&
-                   aux.getNext().getDato().getAño()
-                   <p.getAño()){
+                   aux.getNext().getDato().getFundado()
+                   <V.getFundado()){
                aux=aux.getNext();
            }
            Nodo temp = new Nodo(V);
@@ -41,13 +41,13 @@ public class Lista {
             Nodo aux = cabeza; //utilizo aux como indice
             //Mientras no se acabe la lista y el elemento
             //de la lista sea menor que el buscado
-            while (aux != null && aux.getDato().getAño() < V.getAño()) {
+            while (aux != null && aux.getDato().getFundado() < V.getFundado()) {
                 aux = aux. getNext(); //avanzo en la lista
             }
             // Si lo encuentra hago el cambio
-            if (aux != null && aux.getDato().getAño() == V.getAño()){
+            if (aux != null && aux.getDato().getFundado() == V.getFundado()){
                 //Solo básta cambiar nombre
-                aux.getDato().setAño(V.getAño());
+                aux.getDato().setFundado(V.getFundado());
             }
         }
     }
@@ -61,6 +61,7 @@ public class Lista {
             aux=aux.getNext();
         }
         return s;
+
     }
     
 }
